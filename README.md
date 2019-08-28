@@ -66,3 +66,4 @@ Give a :sparkle: if this project helped you!
 ---
 
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+>>>>>>> eaf7b5b3fbcf0942c52ad834a311a959bf520a0c

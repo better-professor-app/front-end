@@ -46,6 +46,7 @@ export default function StudentList() {
                 <Grid.Column>
                     <StudentListContainer className="studentListContainer">
                         <h2>Students</h2>
+<<<<<<< HEAD:better-professor/src/components/StudentList.js
 
                         {students.map(student => {
                             return (
@@ -57,6 +58,20 @@ export default function StudentList() {
                                 </StudentListCard>
                             )
                         })}
+=======
+                        <Segment>
+                            {students.map(student => {
+                                return (
+                                        <StudentListCard className="studentListCard">
+                                            <NavLink exact to={`/protected/students/${student.id}`} key={student.id}>
+                                                <img src={student.img} alt="portrait of student" />
+                                                <h3>{student.name}</h3>
+                                            </NavLink> 
+                                    </StudentListCard>
+                                )
+                            })}
+                        </Segment>
+>>>>>>> b876ab120d382f568027d2ec4a8db26f85ab6d22:src/components/StudentList.js
                     </StudentListContainer>
                 </Grid.Column>
                 <Grid.Column>
