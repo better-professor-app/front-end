@@ -4,7 +4,7 @@ import "./App.css"
 import Login from "./components/Login"
 import PrivateRoute from "./utilities/privateRoute"
 import Registration from "./components/Registration"
-import StudentList from "./components/StudentList"
+import ProtectedContent from "./components/ProtectedContent"
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       <div className="App">
         <Route exact path="/" render={props => <Login {...props} />} />
         <Route path="/registration" component={Registration} />
-        <PrivateRoute path="/students" component={StudentList} />
+        <PrivateRoute path="/protected" component={ProtectedContent} />
       </div>
     </Router>
   )

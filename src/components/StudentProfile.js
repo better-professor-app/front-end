@@ -39,7 +39,7 @@ export default function StudentProfile(props) {
                 {student.projects && student.projects.map( project => {
                     return (
                         <Segment>
-                            <NavLink to={`/students/${student.id}/project/${project.project_id}`}>
+                            <NavLink to={`/protected/students/${student.id}/project/${project.project_id}`}>
                                 <h3>{project.name}</h3>
                             </NavLink>
                         </Segment>
