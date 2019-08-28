@@ -13,12 +13,27 @@ export default function StudentList() {
 
   const PageContainer = styled.div`
     padding: 1rem;
+    max-width: 1100px;
+    margin: 0 auto;
   `
 
   const StudentListCard = styled(Segment)`
-    display: flex;
   `
 
+  const StudentListNavLink = styled(NavLink)`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  `
+
+  const ThumbnailImg = styled.img`
+    width: 50px;
+    height: 50px;
+  `
+
+  const ThumbnailSpan = styled.span`
+    font-size: 20px;
+  `
 
   const [students, setStudents] = useState([])
   useEffect(() => {
@@ -46,14 +61,13 @@ export default function StudentList() {
                 <Grid.Column>
                     <StudentListContainer className="studentListContainer">
                         <h2>Students</h2>
-
                         {students.map(student => {
                             return (
                                     <StudentListCard className="studentListCard">
-                                        <NavLink exact to={`/protected/students/${student.id}`} key={student.id}>
-                                            <img src={student.img} alt="portrait of student" />
-                                            <h3>{student.name}</h3>
-                                        </NavLink> 
+                                        <StudentListNavLink exact to={`/protected/students/${student.id}`} key={student.id}>
+                                            <ThumbnailImg src={student.img} alt="portrait of student" />
+                                            <ThumbnailSpan>{student.name}</ThumbnailSpan>
+                                        </StudentListNavLink> 
                                 </StudentListCard>
                             )
                         })}

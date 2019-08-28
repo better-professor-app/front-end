@@ -41,7 +41,7 @@ export default function StudentProfile(props) {
                     return (
                         <Segment>
                             <NavLink to={`/protected/students/${student.id}/project/${project.project_id}`}>
-                                <h3>{project.name}</h3>
+                                <span>{project.name}</span>
                             </NavLink>
                         </Segment>
                     )
