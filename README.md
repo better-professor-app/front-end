@@ -1,68 +1,68 @@
-<h1 align="center">Welcome to Better Professor 👋</h1>
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-> Enter Mission Statement here.
+## Available Scripts
 
-Checkout Our Work:
+In the project directory, you can run:
 
-## Technologies:
+### `npm start`
 
-Our application incorporates some great technologies such as the following listed below 🔥:
+Runs the app in the development mode.<br>
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-    Node
-    Javascript
-       [x] Redux
-       [x] React
+The page will reload if you make edits.<br>
+You will also see any lint errors in the console.
 
-libraries such as:
-[x] awesomefont
-[x] axios
-[x] styled-components
+### `npm test`
 
-## Students:
+Launches the test runner in the interactive watch mode.<br>
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-:prince: **Zachery Smith**<br/>
-Project Leader
+### `npm run build`
 
-:prince: **Joseph Garcia** <br/>
-Back End Developer
+Builds the app for production to the `build` folder.<br>
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-:prince: **Dakota Hoskins** <br/>
-Front End Arcitect <br/>
+The build is minified and the filenames include the hashes.<br>
+Your app is ready to be deployed!
 
-:princess: **Shelby Diamond** <br/>
-Front End Arcitect <br/>
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-:princess: **Ann Suparada Saitalae** <br/>
-Front End Arcitect <br/>
+### `npm run eject`
 
-:prince: **Jeffery David Whitaker**<br/>
-Front End Arcitect <br/>
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-:prince: **Ifiok Udoidiok** <br/>
-UI Web Design <br/>
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-:princess: **Naomi Rodriguez**<br/>
-UI Web Design <br/>
+Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-:prince: **Sean Naleid** <br/>
-UI Web Design <br/>
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Author
+## Learn More
 
-:princess: **Shelby Diamond**
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-- Github: [@ShelbyDiamond](https://github.com/ShelbyDiamond)
-- Github: [@ifiokudoidiok](https://github.com/ifiokudoidiok)
-- Github: [@naomi121](https://github.com/naomi121)
-- Github: [@seanaleid](https://github.com/seanaleid)
-- Github: [@dhoskins97](https://github.com/dhoskins97)
-- Github: [@annsuparada](https://github.com/annsuparada)
-- Github: [@kingmoc](https://github.com/kingmoc)
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-## Show your support
+### Code Splitting
 
-Give a :sparkle: if this project helped you!
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
----
+### Analyzing the Bundle Size
 
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+
+### Making a Progressive Web App
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+
+### Advanced Configuration
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+
+### Deployment
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
+### `npm run build` fails to minify
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
