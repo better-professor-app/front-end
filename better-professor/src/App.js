@@ -5,6 +5,7 @@ import Login from "./components/Login"
 import PrivateRoute from "./utilities/privateRoute"
 import Registration from "./components/Registration"
 import StudentList from "./components/StudentList"
+import  from "./components/MenuNav"
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route exact path="/" render={props => <Login {...props} />} />
         <Route path="/registration" component={Registration} />
         <PrivateRoute path="/students" component={StudentList} />
+        <MenuNav/>
       </div>
     </Router>
   )
