@@ -34,6 +34,8 @@ export default function StudentProfile(props) {
                 <span>Program: {student.grad_program}</span>
                 <br />
                 <img src={student.img} alt='portrait of student' />
+                <br />
+                <a href={`mailto:${student.email}`}>Email</a>
             </Segment>
             <h2>Projects</h2>
             <div className="studentProfileProjectsContainer">

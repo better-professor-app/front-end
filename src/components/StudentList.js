@@ -24,6 +24,10 @@ export default function StudentList() {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    &.active {
+        color: red;
+    }
   `
 
   const ThumbnailImg = styled.img`
