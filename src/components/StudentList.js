@@ -12,7 +12,7 @@ export default function StudentList() {
   `
 
   const PageContainer = styled.div`
-    padding: 20px 10px;
+    padding: 1rem;
   `
 
   const StudentListCard = styled(Segment)`
@@ -47,7 +47,7 @@ export default function StudentList() {
                             {students.map(student => {
                                 return (
                                         <StudentListCard className="studentListCard">
-                                            <NavLink exact to={`/students/${student.id}`} key={student.id}>
+                                            <NavLink exact to={`/protected/students/${student.id}`} key={student.id}>
                                                 <img src={student.img} alt="portrait of student" />
                                                 <h3>{student.name}</h3>
                                             </NavLink> 
@@ -60,11 +60,11 @@ export default function StudentList() {
                 <Grid.Column>
                     <Route
                         exact
-                        path="/students/:id"
+                        path="/protected/students/:id"
                         render={props => <StudentProfile {...props} />}
                     />
                     <Route
-                        path="/students/:id/project/:project_id"
+                        path="/protected/students/:id/project/:project_id"
                         component={DummyComponent}
                     />
                 </Grid.Column>

@@ -9,7 +9,6 @@ import {
   Sidebar,
   Responsive
 } from "semantic-ui-react";
-import 'semantic-ui-css/semantic.min.css'
 
 
 const NavBarMobile = ({
@@ -67,7 +66,7 @@ const NavBarChildren = ({ children }) => (
   <Container style={{ marginTop: "5em" }}>{children}</Container>
 );
 
-class NavBar extends Component {
+export default class NavBar extends Component {
   state = {
     visible: false
   };
@@ -105,19 +104,3 @@ class NavBar extends Component {
     );
   }
 }
-
-const leftItems = [
-  { as: "a", content: "Home", key: "home" },
-  { as: "a", content: "Users", key: "users" }
-];
-const rightItems = [
-  { as: "a", content: "Login", key: "login" },
-  { as: "a", content: "Register", key: "register" }
-];
-
-const App = () => (
-  <NavBar leftItems={leftItems} rightItems={rightItems}>
-    
-  </NavBar>
-);
-
