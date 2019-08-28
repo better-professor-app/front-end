@@ -4,17 +4,7 @@ import "./App.css"
 import Login from "./components/Login"
 import PrivateRoute from "./utilities/privateRoute"
 import Registration from "./components/Registration"
-import StudentList from "./components/StudentList"
-import MenuNav from "./components/MenuNav"
-
-const leftItems = [
-  { as: "a", content: "Home", key: "home" },
-  { as: "a", content: "Users", key: "users" }
-];
-const rightItems = [
-  { as: "a", content: "Login", key: "login" },
-  { as: "a", content: "Register", key: "register" }
-];
+import ProtectedContent from "./components/ProtectedContent"
 
 function App() {
   return (
@@ -22,8 +12,7 @@ function App() {
       <div className="App">
         <Route exact path="/" render={props => <Login {...props} />} />
         <Route path="/registration" component={Registration} />
-        <PrivateRoute path="/students" component={StudentList} />
-        <MenuNav leftItems={leftItems} rightItems={rightItems} />
+        <PrivateRoute path="/protected" component={ProtectedContent} />
       </div>
     </Router>
   )
