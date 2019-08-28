@@ -111,7 +111,7 @@ const Login = props => {
               required
             />
           </label>
-          <LogIn>Log In</LogIn>
+          <LogIn>HELP ME!!!!</LogIn>
           <Link to="/registration">
             <SignUp>Sign Up</SignUp>
           </Link>
