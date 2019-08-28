@@ -16,6 +16,7 @@ export default function StudentProfile(props) {
           .get(`https://better-prof-app.herokuapp.com/api/students/${props.match.params.id}`)
           .then(response => {
             console.log(response)
+            response.data.img = 'http://placekitten.com/200/200';
             setStudent(response.data);
           })
           .catch(error => {
@@ -35,17 +36,17 @@ export default function StudentProfile(props) {
                 <img src={student.img} alt='portrait of student' />
             </Segment>
             <h2>Projects</h2>
-            <Segment className="studentProfileProjectsContainer">
+            <div className="studentProfileProjectsContainer">
                 {student.projects && student.projects.map( project => {
                     return (
                         <Segment>
-                            <NavLink to={`/students/${student.id}/project/${project.project_id}`}>
+                            <NavLink to={`/protected/students/${student.id}/project/${project.project_id}`}>
                                 <h3>{project.name}</h3>
                             </NavLink>
                         </Segment>
                     )
                 })}
-            </Segment>
+            </div>
         </StudentProfileContainer>
     )
 }

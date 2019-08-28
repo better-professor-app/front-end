@@ -81,7 +81,7 @@ const Login = props => {
       .then(response => {
         console.log(response)
         localStorage.setItem("token", response.data.token)
-        props.history.push("/protected")
+        props.history.push("/protected/students")
       })
       .catch(error => console.log("Failured Login", error))
     console.log(credentials)

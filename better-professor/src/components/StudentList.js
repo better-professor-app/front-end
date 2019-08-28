@@ -12,7 +12,7 @@ export default function StudentList() {
   `
 
   const PageContainer = styled.div`
-    padding: 20px 10px;
+    padding: 1rem;
   `
 
   const StudentListCard = styled(Segment)`
@@ -26,6 +26,9 @@ export default function StudentList() {
       axiosWithAuth()
         .get("https://better-prof-app.herokuapp.com/api/students")
         .then(response => {
+            response.data.forEach((student) => {
+                student.img = 'http://placekitten.com/100/100';
+            })
           setStudents(response.data)
         })
         .catch(error => {
@@ -43,28 +46,27 @@ export default function StudentList() {
                 <Grid.Column>
                     <StudentListContainer className="studentListContainer">
                         <h2>Students</h2>
-                        <Segment>
-                            {students.map(student => {
-                                return (
-                                        <StudentListCard className="studentListCard">
-                                            <NavLink exact to={`/students/${student.id}`} key={student.id}>
-                                                <img src={student.img} alt="portrait of student" />
-                                                <h3>{student.name}</h3>
-                                            </NavLink> 
-                                    </StudentListCard>
-                                )
-                            })}
-                        </Segment>
+
+                        {students.map(student => {
+                            return (
+                                    <StudentListCard className="studentListCard">
+                                        <NavLink exact to={`/protected/students/${student.id}`} key={student.id}>
+                                            <img src={student.img} alt="portrait of student" />
+                                            <h3>{student.name}</h3>
+                                        </NavLink> 
+                                </StudentListCard>
+                            )
+                        })}
                     </StudentListContainer>
                 </Grid.Column>
                 <Grid.Column>
                     <Route
                         exact
-                        path="/students/:id"
+                        path="/protected/students/:id"
                         render={props => <StudentProfile {...props} />}
                     />
                     <Route
-                        path="/students/:id/project/:project_id"
+                        path="/protected/students/:id/project/:project_id"
                         component={DummyComponent}
                     />
                 </Grid.Column>
