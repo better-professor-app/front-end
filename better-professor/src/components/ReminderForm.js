@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from "react-router-dom"
 import { addReminders } from '../actions'
+import { DatePicker } from 'antd';
+// import DateTimePicker from 'react-widgets/lib/DateTimePicker'
+
 import './reminder.css'
 
 
@@ -21,9 +24,18 @@ const ReminderForm = props => {
         e.preventDefault();
         props.addReminders({message: addForm.message, date: addForm.date, time: addForm.time})
     }
+    function onOk(value) {
+        console.log('onOk: ', value);
+      }
+      
     return(
         <>
         <form onSubmit={handleSubmit}>
+        <DatePicker 
+        showTime placeholder="Select Time" 
+        onChange={handleInputChange}
+        onOk={onOk}
+        />
             <input 
                 type="date"
                 value={addForm.date}

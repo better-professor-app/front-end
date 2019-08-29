@@ -12,7 +12,7 @@ const RemindersList = props => {
     // console.log('props.reminders',props.reminders)
     return(
         <div>
-            <button className="btn" onClick={props.getReminders}>
+            <button className="see-all-btn" onClick={props.getReminders}>
                 {props.isLoading ? (
                     <Loader
                     type="TailSpin"
@@ -20,7 +20,7 @@ const RemindersList = props => {
                     height="100"
                     width="100" />
                 ) : (
-                    'Reminders'
+                    'All Reminders'
                 )}
             </button>
             {props.error && <p className="error">{props.error}</p>}

@@ -13,9 +13,11 @@ const ShowReminders = () => {
     return (
       <div>
          <h1>Add Reminders</h1>
-        <div className="flex">
-          <ReminderForm />
-          <ReminderList removeRemiders={removeRemiders} />
+        <div className="container">
+          <div>
+            <ReminderForm />
+            <ReminderList removeRemiders={removeRemiders} />
+          </div>
         </div>
         
       </div>
