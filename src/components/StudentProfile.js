@@ -9,7 +9,23 @@ export default function StudentProfile(props) {
     const StudentProfileContainer = styled(Segment)`
     `
 
+    const StudentProfileHeaderContainer = styled(Segment)`
+        display: flex;
+        flex-direction: column;
+    `
+
+    const StudentProfileHeaderImg = styled.img`
+        align-self: center
+    `
+
+    const ProjectToggleDiv = styled.div`
+        background-color: lightgray;
+        border-radius: 20px;
+    `
+
     const [student, setStudent] = useState([])
+    const [openProjects, setOpenProjects] = useState([])
+
     useEffect(() => {
       const getStudent = () => {
         axiosWithAuth()
@@ -27,24 +43,41 @@ export default function StudentProfile(props) {
       getStudent();
     }, [props.match.params.id]);
  
+    function showHideProject(project_id) {
+        if (openProjects.includes(project_id)) {
+            openProjects.splice(openProjects.indexOf(project_id), 1)
+        } else {
+            openProjects.push(project_id)
+        }
+        setOpenProjects([...openProjects])
+    }
+
     return (
         <StudentProfileContainer className="studentProfileContainer">
-            <Segment className="studentProfileHeaderContainer">
+            <StudentProfileHeaderContainer className="studentProfileHeaderContainer">
                 <h2>{student.name}</h2>
                 <span>Program: {student.grad_program}</span>
                 <br />
-                <img src={student.img} alt='portrait of student' />
+                <StudentProfileHeaderImg src={student.img} alt='portrait of student' />
                 <br />
                 <a href={`mailto:${student.email}`}>Email</a>
-            </Segment>
+            </StudentProfileHeaderContainer>
             <h2>Projects</h2>
             <div className="studentProfileProjectsContainer">
                 {student.projects && student.projects.map( project => {
                     return (
-                        <Segment>
-                            <NavLink to={`/protected/students/${student.id}/project/${project.project_id}`}>
+                        <Segment onClick={() => showHideProject(project.project_id)}>
                                 <span>{project.name}</span>
-                            </NavLink>
+                                {openProjects.includes(project.project_id) &&
+                                    <ProjectToggleDiv>
+                                        <br />
+                                        <span>Grade: {project.grade}</span>
+                                        <br />
+                                        <span>Notes: {project.notes}</span>
+                                        <br />
+                                        <br />
+                                    </ProjectToggleDiv>
+                                }
                         </Segment>
                     )
                 })}

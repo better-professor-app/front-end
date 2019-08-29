@@ -83,10 +83,10 @@ export default function StudentList() {
                         path="/protected/students/:id"
                         render={props => <StudentProfile {...props} />}
                     />
-                    <Route
+                    {/* <Route
                         path="/protected/students/:id/project/:project_id"
                         component={DummyComponent}
-                    />
+                    /> */}
                 </Grid.Column>
             </Grid.Row>
         </Grid>
