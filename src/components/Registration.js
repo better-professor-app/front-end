@@ -3,10 +3,11 @@ import { Link } from "react-router-dom"
 import { connect } from "react-redux"
 import { withRouter } from "react-router-dom"
 import { register } from "../actions"
-import { SignUp, BigDiv, Image, Form, Input } from "./Login"
+import { SignUp, BigDiv, Image,  } from "./Login"
 import Logo from "../images/Logo.png"
 import styled from "styled-components"
 import "./registration.css"
+import { Button, Form } from 'semantic-ui-react'
 
 const SignIn = styled.p`
   font-size: 1.2rem;
@@ -92,46 +93,38 @@ const Registration = props => {
       <BigDiv>
         <Image src={Logo} alt="It's our logo!" />
         <Form onSubmit={handleSubmit}>
-          <label className="label">
-            Name
-            <Input
+            <Form.Input 
+              label='Name' 
+              placeholder='Name'
               type="text"
               name="name"
-              placeholder="Name"
               onChange={handleChange}
               value={newUser.name}
             />
-          </label>
-          <label className="label">
-            Email  
-            <Input
+            <Form.Input 
+              label='Email' 
+              placeholder='Email'
               type="text"
               name="email"
-              placeholder="email"
               onChange={handleChange}
-              value={newUser.email}
+              value={newUser.email} 
             />
-          </label>
-          <label>
-            Username
-            <Input
+            <Form.Input 
+              label='Username' 
+              placeholder='Username'
               type="text"
               name="username"
-              placeholder="username"
               onChange={handleChange}
-              value={newUser.username}
+              value={newUser.username} 
             />
-          </label>
-          <label>
-            Password
-            <Input
+            <Form.Input 
+              label='Password' 
+              placeholder='Password'
               type="password"
               name="password"
-              placeholder="Password"
               onChange={handleChange}
-              value={newUser.password}
+              value={newUser.password} 
             />
-          </label>
           <SignUp type="submit">Sign up</SignUp>
         </Form>
         <SignIn>Already have an account <Link to="/">Log in</Link></SignIn>
