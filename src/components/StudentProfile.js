@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { NavLink } from 'react-router-dom'
+// import { NavLink } from 'react-router-dom'
 import { Segment } from 'semantic-ui-react'
 import styled from 'styled-components'
 
@@ -16,6 +16,7 @@ export default function StudentProfile(props) {
 
     const StudentProfileHeaderImg = styled.img`
         align-self: center
+        border-radius: 10px;
     `
 
     const ProjectContainer = styled(Segment)`

@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react"
 import { Route, NavLink } from "react-router-dom"
-import { Segment, Grid, GridColumn } from "semantic-ui-react"
+import { Segment, Grid } from "semantic-ui-react"
 import styled from "styled-components"
 
 import StudentProfile from "./StudentProfile"
 import { axiosWithAuth } from "../utilities/axiosWithAuth"
-import DummyComponent from "./DummyComponent"
 
 export default function StudentList() {
   const StudentListContainer = styled(Segment)`
@@ -33,10 +32,23 @@ export default function StudentList() {
   const ThumbnailImg = styled.img`
     width: 50px;
     height: 50px;
+    border-radius: 10px;
   `
 
   const ThumbnailSpan = styled.span`
     font-size: 20px;
+    color: black;
+
+    @keyframes glow {
+        to {
+            text-shadow: 1px 1px 2px #4ed34e, 0 0 10px #77dd77;
+        }
+    }
+
+    .active & {
+        font-weight: bold;
+        animation: glow .5s infinite alternate;
+    }
   `
 
   const [students, setStudents] = useState([])
