@@ -36,7 +36,7 @@ const NavBarMobile = ({
     >
       <Menu fixed="top" inverted>
         <Menu.Item>
-          <Icon name = 'american sign language interpreting'/>
+          <Icon name = 'envelope outline'/>
         </Menu.Item>
         <Menu.Item onClick={onToggle}>
           <Icon name="sidebar" />
