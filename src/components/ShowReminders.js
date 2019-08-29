@@ -8,7 +8,7 @@ const ShowReminders = () => {
   const [removed, setremove] = useState([])
 
   const removeRemiders = id => {
-    setremove(removed.filter(item => item.id != id))
+    setremove(removed.filter(item => item.id !== id))
   }
     return (
       <div>
