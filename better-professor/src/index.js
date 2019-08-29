@@ -6,6 +6,7 @@ import { createStore, applyMiddleware } from "redux"
 import { BrowserRouter } from "react-router-dom"
 import { logger } from "redux-logger"
 import { reducer } from "./reducers"
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
 import "./index.css"
 import App from "./App"

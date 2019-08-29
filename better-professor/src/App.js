@@ -5,14 +5,17 @@ import Login from "./components/Login"
 import PrivateRoute from "./utilities/privateRoute"
 import Registration from "./components/Registration"
 import StudentList from "./components/StudentList"
+import ShowReminders from "./components/ShowReminders"
 
 function App() {
   return (
     <Router>
+      <Link to="reminders">Temporary Reminder</Link>
       <div className="App">
         <Route exact path="/" render={props => <Login {...props} />} />
         <Route path="/registration" component={Registration} />
-        <PrivateRoute path="/students" component={StudentList} />
+        <Route path="/reminders" component={ShowReminders} />
+        <PrivateRoute path="/protected" component={StudentList} />
       </div>
     </Router>
   )
