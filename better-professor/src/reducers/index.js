@@ -61,7 +61,7 @@ export const reducer = (state = initialState, action) => {
                 return {
                     ...state,
                     isRemindersLoading: false,
-                    reminders: [...state.reminders, action.payload],
+                    reminders: [action.payload,...state.reminders],
                 }
             
         default:

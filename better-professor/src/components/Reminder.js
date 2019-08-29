@@ -23,10 +23,11 @@ const Reminder = props => {
     }
     return(
         <div className="reminder">
+            <button className="delete-btn" onClick={deleteReminder}>X</button>
             <h3> {date}, {props.reminder.time}</h3>
             {/* <h3>Time: {props.reminder.time}</h3> */}
             <h3>{props.reminder.message}</h3>
-            <button className="delete-btn" onClick={deleteReminder}>Delete</button>
+            
         </div>
     )
 }

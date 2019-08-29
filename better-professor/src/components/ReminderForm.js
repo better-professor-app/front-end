@@ -31,11 +31,6 @@ const ReminderForm = props => {
     return(
         <>
         <form onSubmit={handleSubmit}>
-        <DatePicker 
-        showTime placeholder="Select Time" 
-        onChange={handleInputChange}
-        onOk={onOk}
-        />
             <input 
                 type="date"
                 value={addForm.date}
@@ -56,7 +51,7 @@ const ReminderForm = props => {
                 placeholder="Add Notes"
             />
             
-            <button type="submit">Add Reminder</button>
+            <button type="submit" className="add-btn">Add Reminder</button>
         </form>
         </>
     )
