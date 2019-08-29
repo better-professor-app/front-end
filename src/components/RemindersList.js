@@ -9,16 +9,16 @@ import Reminder from './Reminder'
 
 const RemindersList = props => {
     // console.log('props', props)
-    // console.log('props.reminders',props.reminders)
+    console.log('props.reminders',props.reminders)
     return(
         <div>
             <button className="see-all-btn" onClick={props.getReminders}>
-                {props.isLoading ? (
+                {props.isRemindersLoading ? (
                     <Loader
                     type="TailSpin"
                     color="#00BFFF"
-                    height="100"
-                    width="100" />
+                    height={100}
+                    width={100} />
                 ) : (
                     'All Reminders'
                 )}
