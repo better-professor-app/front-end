@@ -79,3 +79,15 @@
   header{
     margin-bottom: 3rem;
   }
+
+  .tab-link{
+     color: white!important;
+     text-shadow: 0 0 3px #000000, 0 0 5px #000000!important;
+  
+  }
+
+  .ui.attached.menu{
+    display: flex;
+    justify-content: flex-end;
+    background-color: black;
+  }
