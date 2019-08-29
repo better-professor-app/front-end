@@ -4,6 +4,8 @@ import { Segment, Grid } from "semantic-ui-react"
 import styled from "styled-components"
 import StudentProfile from "./StudentProfile"
 import { axiosWithAuth } from "../utilities/axiosWithAuth"
+import TabNavAnn from './TabNavAnn'
+import './reminder.css'
 
 export default function StudentList() {
   const StudentListContainer = styled(Segment)``
@@ -69,6 +71,10 @@ export default function StudentList() {
   }, [])
 
   return (
+    <>
+    <header>
+    <TabNavAnn />
+    </header>
     <PageContainer className="pageContainer">
       <Grid columns={2} divided>
         <Grid.Row>
@@ -108,5 +114,6 @@ export default function StudentList() {
         </Grid.Row>
       </Grid>
     </PageContainer>
+    </>
   )
 }
