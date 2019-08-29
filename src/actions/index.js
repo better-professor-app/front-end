@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { axiosWithAuth } from '../utilities/axiosWithAuth'
 
 
 export const REGISTER_START = "REGISTER_START";
@@ -39,7 +40,6 @@ export const getReminders =() => dispatch => {
     axios
         .get(`https://better-prof-app.herokuapp.com/api/reminders`)
         .then(res => {
-            console.log('getData', res)
             dispatch({
                 type: FETCH_REMINDERS_SUCCESS,
                 payload: res.data
@@ -55,15 +55,16 @@ export const getReminders =() => dispatch => {
 
 export const ADD_REMINDERS = "ADD_REMINDERS";
 
-export const addReminders = ({message, date, time }) =>{
+export const addReminders = ({message, date, time }) => {
 
     return dispatch => {
         axios
             .post(`https://better-prof-app.herokuapp.com/api/reminders`, {message, date, time})
             .then(res => {
-                const { id } = res.data.id
-                let payload = {message, date, time}
-                payload.id = id
+                console.log('addRes',res)
+                const id = res.data.id
+                let payload = {message: message, date: date, time: time, id: id}
+                // payload.id = id
                 dispatch({
                     type: ADD_REMINDERS,
                     payload: payload
@@ -74,5 +75,16 @@ export const addReminders = ({message, date, time }) =>{
 
 export const EDIT_REMINDERS = "EDIT_REMINDERS";
 
-
 export const DELETE_REMINDERS = "DELETE_REMINDERS";
+
+export const deleteReminder = id => dispatch => {
+    console.log('id',id)
+    axios
+    .delete(`https://better-prof-app.herokuapp.com/api/reminders/${id}`)
+    .then(res => {
+        console.log('delete', res)
+        dispatch({ type: DELETE_REMINDERS, payload: id})
+    })
+}
+
+

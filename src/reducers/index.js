@@ -12,7 +12,7 @@ import {
 
 export const initialState = {
     reminders: [],
-    isRemindersLoading: true,
+    isRemindersLoading: false,
     isRegistering: false,
     isRegisterd: false,
     error: null
@@ -61,7 +61,12 @@ export const reducer = (state = initialState, action) => {
                 return {
                     ...state,
                     isRemindersLoading: false,
-                    reminders: [action.payload,...state.reminders],
+                    reminders: [action.payload, ...state.reminders],
+                }
+            case DELETE_REMINDERS:
+                return {
+                    ...state,
+                    reminders: state.reminders.filter(e => e.id !== action.payload)
                 }
             
         default:
