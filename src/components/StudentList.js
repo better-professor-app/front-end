@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react"
 import { Route, NavLink } from "react-router-dom"
-import { Segment, Grid, GridColumn } from "semantic-ui-react"
+import { Segment, Grid } from "semantic-ui-react"
 import styled from "styled-components"
 
 import StudentProfile from "./StudentProfile"
 import { axiosWithAuth } from "../utilities/axiosWithAuth"
-import DummyComponent from "./DummyComponent"
 
 export default function StudentList() {
   const StudentListContainer = styled(Segment)`
@@ -13,12 +12,44 @@ export default function StudentList() {
 
   const PageContainer = styled.div`
     padding: 1rem;
+    max-width: 1100px;
+    margin: 0 auto;
   `
 
   const StudentListCard = styled(Segment)`
-    display: flex;
   `
 
+  const StudentListNavLink = styled(NavLink)`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &.active {
+        color: red;
+    }
+  `
+
+  const ThumbnailImg = styled.img`
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+  `
+
+  const ThumbnailSpan = styled.span`
+    font-size: 20px;
+    color: black;
+
+    @keyframes glow {
+        to {
+            text-shadow: 1px 1px 2px #4ed34e, 0 0 10px #77dd77;
+        }
+    }
+
+    .active & {
+        font-weight: bold;
+        animation: glow .5s infinite alternate;
+    }
+  `
 
   const [students, setStudents] = useState([])
   useEffect(() => {
@@ -26,6 +57,9 @@ export default function StudentList() {
       axiosWithAuth()
         .get("https://better-prof-app.herokuapp.com/api/students")
         .then(response => {
+            response.data.forEach((student) => {
+                student.img = 'http://placekitten.com/100/100';
+            })
           setStudents(response.data)
         })
         .catch(error => {
@@ -43,18 +77,16 @@ export default function StudentList() {
                 <Grid.Column>
                     <StudentListContainer className="studentListContainer">
                         <h2>Students</h2>
-                        <Segment>
-                            {students.map(student => {
-                                return (
-                                        <StudentListCard className="studentListCard">
-                                            <NavLink exact to={`/protected/students/${student.id}`} key={student.id}>
-                                                <img src={student.img} alt="portrait of student" />
-                                                <h3>{student.name}</h3>
-                                            </NavLink> 
-                                    </StudentListCard>
-                                )
-                            })}
-                        </Segment>
+                        {students.map(student => {
+                            return (
+                                    <StudentListCard className="studentListCard">
+                                        <StudentListNavLink exact to={`/protected/students/${student.id}`} key={student.id}>
+                                            <ThumbnailImg src={student.img} alt="portrait of student" />
+                                            <ThumbnailSpan>{student.name}</ThumbnailSpan>
+                                        </StudentListNavLink> 
+                                </StudentListCard>
+                            )
+                        })}
                     </StudentListContainer>
                 </Grid.Column>
                 <Grid.Column>
@@ -63,10 +95,10 @@ export default function StudentList() {
                         path="/protected/students/:id"
                         render={props => <StudentProfile {...props} />}
                     />
-                    <Route
+                    {/* <Route
                         path="/protected/students/:id/project/:project_id"
                         component={DummyComponent}
-                    />
+                    /> */}
                 </Grid.Column>
             </Grid.Row>
         </Grid>
