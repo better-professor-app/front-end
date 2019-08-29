@@ -18,9 +18,20 @@ export default function StudentProfile(props) {
         align-self: center
     `
 
+    const ProjectContainer = styled(Segment)`
+
+    `
+
     const ProjectToggleDiv = styled.div`
         background-color: lightgray;
         border-radius: 20px;
+        margin-top: 10px;
+    `
+
+    const ProjectTitleDiv = styled.div`
+        &:hover {
+            cursor: pointer;
+        }
     `
 
     const [student, setStudent] = useState([])
@@ -66,8 +77,8 @@ export default function StudentProfile(props) {
             <div className="studentProfileProjectsContainer">
                 {student.projects && student.projects.map( project => {
                     return (
-                        <Segment onClick={() => showHideProject(project.project_id)}>
-                                <span>{project.name}</span>
+                        <ProjectContainer>
+                                <ProjectTitleDiv onClick={() => showHideProject(project.project_id)}>{project.name}</ProjectTitleDiv>
                                 {openProjects.includes(project.project_id) &&
                                     <ProjectToggleDiv>
                                         <br />
@@ -78,7 +89,7 @@ export default function StudentProfile(props) {
                                         <br />
                                     </ProjectToggleDiv>
                                 }
-                        </Segment>
+                        </ProjectContainer>
                     )
                 })}
             </div>
