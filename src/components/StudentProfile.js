@@ -40,21 +40,23 @@ export default function StudentProfile(props) {
     const [openProjects, setOpenProjects] = useState([])
 
     useEffect(() => {
-      const getStudent = () => {
-        axiosWithAuth()
-          .get(`https://better-prof-app.herokuapp.com/api/students/${props.match.params.id}`)
-          .then(response => {
-            console.log(response)
-            // response.data.img = 'http://placekitten.com/200/200';
-            setStudent(response.data);
-          })
-          .catch(error => {
-            console.error('Server Error', error)
-          })
-      }
+        const getStudent = () => {
+            axiosWithAuth()
+                .get(`https://better-prof-app.herokuapp.com/api/students/${props.match.params.id}`)
+                .then(response => {
+                    console.log(response)
+                    if (response.data.img === null) {
+                        response.data.img = 'http://placekitten.com/100/100'
+                    } 
+                    setStudent(response.data)
+                })
+                .catch(error => {
+                    console.error('Server Error', error)
+                })
+        }
 
-      getStudent();
-    }, [props.match.params.id]);
+      getStudent()
+    }, [props.match.params.id])
  
     function showHideProject(project_id) {
         if (openProjects.includes(project_id)) {
