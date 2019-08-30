@@ -53,6 +53,7 @@ UI Web Design <br/>
 - Github: [@dhoskins97](https://github.com/dhoskins97)
 - Github: [@annsuparada](https://github.com/annsuparada)
 - Github: [@kingmoc](https://github.com/kingmoc)
+- Github: [@jeffreywhitaker](https://github.com/jeffreywhitaker)
 
 ## Show your support
 
