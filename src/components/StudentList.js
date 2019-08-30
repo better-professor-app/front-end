@@ -57,10 +57,10 @@ export default function StudentList() {
       axiosWithAuth()
         .get("https://better-prof-app.herokuapp.com/api/students")
         .then(response => {
-          response.data.forEach(student => {
-            student.img = "http://placekitten.com/100/100"
-          })
-          setStudents(response.data)
+            if (response.data.img === null) {
+                response.data.img = 'http://placekitten.com/100/100'
+            } 
+            setStudents(response.data)
         })
         .catch(error => {
           console.error("Server Error", error)
@@ -72,48 +72,37 @@ export default function StudentList() {
 
   return (
     <>
-      <header>
-        <TabNavAnn />
-      </header>
-      <PageContainer className="pageContainer">
+    <header>
+    <TabNavAnn />
+    </header>
+    <PageContainer className="pageContainer">
         <Grid columns={2} divided>
-          <Grid.Row>
-            <Grid.Column>
-              <StudentListContainer className="studentListContainer">
-                <h2>Students</h2>
-                {students.map(student => {
-                  return (
-                    <StudentListCard className="studentListCard">
-                      <StudentListNavLink
+            <Grid.Row>
+                <Grid.Column>
+                    <StudentListContainer className="studentListContainer">
+                        <h2>Students</h2>
+                        {students.map(student => {
+                            return (
+                                    <StudentListCard className="studentListCard" key={student.id}>
+                                        <StudentListNavLink exact to={`/protected/students/${student.id}`}>
+                                            <ThumbnailImg src={student.img} alt="portrait of student" />
+                                            <ThumbnailSpan>{student.name}</ThumbnailSpan>
+                                        </StudentListNavLink> 
+                                </StudentListCard>
+                            )
+                        })}
+                    </StudentListContainer>
+                </Grid.Column>
+                <Grid.Column>
+                    <Route
                         exact
-                        to={`/protected/students/${student.id}`}
-                        key={student.id}
-                      >
-                        <ThumbnailImg
-                          src={student.img}
-                          alt="portrait of student"
-                        />
-                        <ThumbnailSpan>{student.name}</ThumbnailSpan>
-                      </StudentListNavLink>
-                    </StudentListCard>
-                  )
-                })}
-              </StudentListContainer>
-            </Grid.Column>
-            <Grid.Column>
-              <Route
-                exact
-                path="/protected/students/:id"
-                render={props => <StudentProfile {...props} />}
-              />
-              {/* <Route
-                        path="/protected/students/:id/project/:project_id"
-                        component={DummyComponent}
-                    /> */}
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-      </PageContainer>
+                        path="/protected/students/:id"
+                        render={props => <StudentProfile {...props} />}
+                    />
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
+    </PageContainer>
     </>
   )
 }
