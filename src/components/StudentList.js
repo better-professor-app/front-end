@@ -4,8 +4,8 @@ import { Segment, Grid } from "semantic-ui-react"
 import styled from "styled-components"
 import StudentProfile from "./StudentProfile"
 import { axiosWithAuth } from "../utilities/axiosWithAuth"
-import TabNavAnn from './TabNavAnn'
-import './reminder.css'
+import TabNavAnn from "./TabNavAnn"
+import "./reminder.css"
 
 export default function StudentList() {
   const StudentListContainer = styled(Segment)``
@@ -14,7 +14,7 @@ export default function StudentList() {
     padding: 1rem;
     max-width: 1100px;
     margin: 0 auto;
-    border: 3px solid #131e00;
+    /* border: 3px solid #131e00; */
   `
 
   const StudentListCard = styled(Segment)``

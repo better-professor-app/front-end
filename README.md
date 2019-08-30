@@ -46,13 +46,12 @@ UI Web Design <br/>
 
 :princess: **Shelby Diamond**
 
-- Github: [@ShelbyDiamond](https://github.com/ShelbyDiamond)
-- Github: [@ifiokudoidiok](https://github.com/ifiokudoidiok)
-- Github: [@naomi121](https://github.com/naomi121)
-- Github: [@seanaleid](https://github.com/seanaleid)
-- Github: [@dhoskins97](https://github.com/dhoskins97)
-- Github: [@annsuparada](https://github.com/annsuparada)
 - Github: [@kingmoc](https://github.com/kingmoc)
+- Github: [@ShelbyDiamond](https://github.com/ShelbyDiamond)
+- Github: [@annsuparada](https://github.com/annsuparada)
+- Github: [@dhoskins97](https://github.com/dhoskins97)
+- Github: [@ifiokudoidiok](https://github.com/ifiokudoidiok)
+- Github: [@seanaleid](https://github.com/seanaleid)
 - Github: [@jeffreywhitaker](https://github.com/jeffreywhitaker)
 
 ## Show your support
