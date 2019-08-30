@@ -6,7 +6,15 @@ import MenuNav from "./MenuNav"
 import { NavLink } from "react-router-dom";
 
 export default function ProtectedContent() {
-    
+    const leftItems = [
+        { as: "a", content: "Home", key: "home" },
+        
+    ];
+    const rightItems = [
+        { as: "a", content: "Log Out", key: "login" },
+        
+    ];
+
     // const leftItems = [
     //     { as: "a", content: "Home", key: "home" },
     //     { as: "a", content: "Users", key: "users" }
@@ -15,6 +23,7 @@ export default function ProtectedContent() {
     //     { as: "a", content: "Login", key: "login" },
     //     { as: "a", content: "Register", key: "register" }
     // ];
+
 
     return (
         <div>
