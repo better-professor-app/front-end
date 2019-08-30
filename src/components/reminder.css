@@ -8,7 +8,7 @@
   width: 50%;
   margin: 1.5rem auto;
   padding: 1.5rem;
-  background-color: #beffbe;
+  background-color: white;
 }
 .see-all-btn {
   margin: 1.5rem;
@@ -61,10 +61,15 @@
 
 form {
   border-radius: 5px;
-  background-color: #beffbe;
+  background-color: white;
   padding: 20px;
-  width: 70%;
+  width: 50%;
   margin: auto;
+  border: 2px solid #619800;
+}
+input{
+  height: 30px;
+  border: 2px solid #619800; 
 }
 
 .delete-btn {
