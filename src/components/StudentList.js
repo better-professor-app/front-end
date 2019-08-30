@@ -2,22 +2,22 @@ import React, { useState, useEffect } from "react"
 import { Route, NavLink } from "react-router-dom"
 import { Segment, Grid } from "semantic-ui-react"
 import styled from "styled-components"
-
 import StudentProfile from "./StudentProfile"
 import { axiosWithAuth } from "../utilities/axiosWithAuth"
+import TabNavAnn from './TabNavAnn'
+import './reminder.css'
 
 export default function StudentList() {
-  const StudentListContainer = styled(Segment)`
-  `
+  const StudentListContainer = styled(Segment)``
 
   const PageContainer = styled.div`
     padding: 1rem;
     max-width: 1100px;
     margin: 0 auto;
+    border: 3px solid #131e00;
   `
 
-  const StudentListCard = styled(Segment)`
-  `
+  const StudentListCard = styled(Segment)``
 
   const StudentListNavLink = styled(NavLink)`
     display: flex;
@@ -25,7 +25,7 @@ export default function StudentList() {
     align-items: center;
 
     &.active {
-        color: red;
+      color: red;
     }
   `
 
@@ -40,14 +40,14 @@ export default function StudentList() {
     color: black;
 
     @keyframes glow {
-        to {
-            text-shadow: 1px 1px 2px #4ed34e, 0 0 10px #77dd77;
-        }
+      to {
+        text-shadow: 1px 1px 2px #90b64c, 0 0 10px #90b64c;
+      }
     }
 
     .active & {
-        font-weight: bold;
-        animation: glow .5s infinite alternate;
+      font-weight: bold;
+      animation: glow 0.5s infinite alternate;
     }
   `
 
@@ -60,7 +60,10 @@ export default function StudentList() {
             // response.data.forEach((student) => {
             //     student.img = 'http://placekitten.com/100/100';
             // })
-          setStudents(response.data)
+            if (response.data.img === null) {
+                response.data.img = 'http://placekitten.com/100/100'
+            } 
+            setStudents(response.data)
         })
         .catch(error => {
           console.error("Server Error", error)
@@ -71,6 +74,10 @@ export default function StudentList() {
   }, [])
 
   return (
+    <>
+    <header>
+    <TabNavAnn />
+    </header>
     <PageContainer className="pageContainer">
         <Grid columns={2} divided>
             <Grid.Row>
@@ -95,13 +102,10 @@ export default function StudentList() {
                         path="/protected/students/:id"
                         render={props => <StudentProfile {...props} />}
                     />
-                    {/* <Route
-                        path="/protected/students/:id/project/:project_id"
-                        component={DummyComponent}
-                    /> */}
-                </Grid.Column>
-            </Grid.Row>
-        </Grid>
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
     </PageContainer>
+    </>
   )
 }
