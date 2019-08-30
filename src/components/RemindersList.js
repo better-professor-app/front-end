@@ -13,7 +13,7 @@ const RemindersList = props => {
     <div>
       <button className="see-all-btn" onClick={props.getReminders}>
         {props.isRemindersLoading ? (
-          <Loader type="TailSpin" color="#61dafb" height={100} width={100} />
+          <Loader type="TailSpin" color="#00BFFF" height={100} width={100} />
         ) : (
           "All Reminders"
         )}
@@ -23,9 +23,6 @@ const RemindersList = props => {
         props.reminders.map(item => (
           <Reminder key={Math.random()} reminder={item} />
         ))}
-      <button type="submit" className="add-btn">
-        Add Reminder
-      </button>
     </div>
   )
 }
