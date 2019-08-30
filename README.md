@@ -1,8 +1,6 @@
 <h1 align="center">Welcome to Better Professor 👋</h1>
 
-> Enter Mission Statement here.
-
-Checkout Our Work: https://clever-euler-553f14.netlify.com/
+Checkout Our Work: https://better-professor-app.netlify.com/
 
 ## Technologies:
 
@@ -39,9 +37,6 @@ Front End Arcitect <br/>
 Front End Arcitect <br/>
 
 :prince: **Ifiok Udoidiok** <br/>
-UI Web Design <br/>
-
-:princess: **Naomi Rodriguez**<br/>
 UI Web Design <br/>
 
 :prince: **Sean Naleid** <br/>
