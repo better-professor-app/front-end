@@ -57,9 +57,9 @@ export default function StudentList() {
       axiosWithAuth()
         .get("https://better-prof-app.herokuapp.com/api/students")
         .then(response => {
-            response.data.forEach((student) => {
-                student.img = 'http://placekitten.com/100/100';
-            })
+            // response.data.forEach((student) => {
+            //     student.img = 'http://placekitten.com/100/100';
+            // })
           setStudents(response.data)
         })
         .catch(error => {
@@ -79,8 +79,8 @@ export default function StudentList() {
                         <h2>Students</h2>
                         {students.map(student => {
                             return (
-                                    <StudentListCard className="studentListCard">
-                                        <StudentListNavLink exact to={`/protected/students/${student.id}`} key={student.id}>
+                                    <StudentListCard className="studentListCard" key={student.id}>
+                                        <StudentListNavLink exact to={`/protected/students/${student.id}`}>
                                             <ThumbnailImg src={student.img} alt="portrait of student" />
                                             <ThumbnailSpan>{student.name}</ThumbnailSpan>
                                         </StudentListNavLink> 

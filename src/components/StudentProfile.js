@@ -17,6 +17,7 @@ export default function StudentProfile(props) {
     const StudentProfileHeaderImg = styled.img`
         align-self: center
         border-radius: 10px;
+        max-width: 300px;
     `
 
     const ProjectContainer = styled(Segment)`
@@ -44,7 +45,7 @@ export default function StudentProfile(props) {
           .get(`https://better-prof-app.herokuapp.com/api/students/${props.match.params.id}`)
           .then(response => {
             console.log(response)
-            response.data.img = 'http://placekitten.com/200/200';
+            // response.data.img = 'http://placekitten.com/200/200';
             setStudent(response.data);
           })
           .catch(error => {
@@ -78,7 +79,7 @@ export default function StudentProfile(props) {
             <div className="studentProfileProjectsContainer">
                 {student.projects && student.projects.map( project => {
                     return (
-                        <ProjectContainer>
+                        <ProjectContainer key={project.project_id}>
                                 <ProjectTitleDiv onClick={() => showHideProject(project.project_id)}>{project.name}</ProjectTitleDiv>
                                 {openProjects.includes(project.project_id) &&
                                     <ProjectToggleDiv>
