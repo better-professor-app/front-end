@@ -4,8 +4,8 @@ import { Segment, Grid } from "semantic-ui-react"
 import styled from "styled-components"
 import StudentProfile from "./StudentProfile"
 import { axiosWithAuth } from "../utilities/axiosWithAuth"
-import TabNavAnn from './TabNavAnn'
-import './reminder.css'
+import TabNavAnn from "./TabNavAnn"
+import "./reminder.css"
 
 export default function StudentList() {
   const StudentListContainer = styled(Segment)``
@@ -14,7 +14,7 @@ export default function StudentList() {
     padding: 1rem;
     max-width: 1100px;
     margin: 0 auto;
-    border: 3px solid #131e00;
+    /* border: 3px solid #131e00; */
   `
 
   const StudentListCard = styled(Segment)``
@@ -72,48 +72,48 @@ export default function StudentList() {
 
   return (
     <>
-    <header>
-    <TabNavAnn />
-    </header>
-    <PageContainer className="pageContainer">
-      <Grid columns={2} divided>
-        <Grid.Row>
-          <Grid.Column>
-            <StudentListContainer className="studentListContainer">
-              <h2>Students</h2>
-              {students.map(student => {
-                return (
-                  <StudentListCard className="studentListCard">
-                    <StudentListNavLink
-                      exact
-                      to={`/protected/students/${student.id}`}
-                      key={student.id}
-                    >
-                      <ThumbnailImg
-                        src={student.img}
-                        alt="portrait of student"
-                      />
-                      <ThumbnailSpan>{student.name}</ThumbnailSpan>
-                    </StudentListNavLink>
-                  </StudentListCard>
-                )
-              })}
-            </StudentListContainer>
-          </Grid.Column>
-          <Grid.Column>
-            <Route
-              exact
-              path="/protected/students/:id"
-              render={props => <StudentProfile {...props} />}
-            />
-            {/* <Route
+      <header>
+        <TabNavAnn />
+      </header>
+      <PageContainer className="pageContainer">
+        <Grid columns={2} divided>
+          <Grid.Row>
+            <Grid.Column>
+              <StudentListContainer className="studentListContainer">
+                <h2>Students</h2>
+                {students.map(student => {
+                  return (
+                    <StudentListCard className="studentListCard">
+                      <StudentListNavLink
+                        exact
+                        to={`/protected/students/${student.id}`}
+                        key={student.id}
+                      >
+                        <ThumbnailImg
+                          src={student.img}
+                          alt="portrait of student"
+                        />
+                        <ThumbnailSpan>{student.name}</ThumbnailSpan>
+                      </StudentListNavLink>
+                    </StudentListCard>
+                  )
+                })}
+              </StudentListContainer>
+            </Grid.Column>
+            <Grid.Column>
+              <Route
+                exact
+                path="/protected/students/:id"
+                render={props => <StudentProfile {...props} />}
+              />
+              {/* <Route
                         path="/protected/students/:id/project/:project_id"
                         component={DummyComponent}
                     /> */}
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
-    </PageContainer>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </PageContainer>
     </>
   )
 }

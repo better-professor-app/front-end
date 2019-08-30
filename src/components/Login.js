@@ -11,7 +11,6 @@ export const BigDiv = styled.div`
   align-items: center;
   border: 5px solid #619800;
   width: 65%;
-  height: 55%;
   margin: 50px auto;
   background: white;
   @media (max-width: 500px) {
@@ -22,25 +21,35 @@ export const LogIn = styled.button`
   border-radius: 15px;
   padding: 25px;
   background-color: #619800;
-  color: black;
   box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.4);
   border: none;
   justify-content: center;
   margin: 15px;
+  margin-left: 52px;
   color: white;
   font-size: 1.2rem;
+  width: 80%;
+  :hover {
+    background-color: #3e8e41;
+  }
+  @media (max-width: 500px) {
+    margin-left: 30px;
+  }
 `
 export const SignUp = styled.button`
   border-radius: 15px;
-  padding: 25px 150px;
+  padding: 25px;
   background-color: #619800;
-  color: black;
   box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.4);
   border: none;
   justify-content: center;
   margin: 15px;
   color: white;
   font-size: 1.2rem;
+  width: 80%;
+  :hover {
+    background-color: #3e8e41;
+  }
 `
 
 export const Image = styled.img`
@@ -52,6 +61,7 @@ export const Image = styled.img`
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
+  background: white;
 `
 
 export const Input = styled.input`
