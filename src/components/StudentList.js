@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react"
-import { Route, NavLink } from "react-router-dom"
+import { Route, NavLink, Link } from "react-router-dom"
 import { Segment, Grid } from "semantic-ui-react"
 import styled from "styled-components"
 import StudentProfile from "./StudentProfile"
 import { axiosWithAuth } from "../utilities/axiosWithAuth"
 import TabNavAnn from "./TabNavAnn"
 import "./reminder.css"
+import NewStudentForm from "./NewStudentForm"
 
 export default function StudentList() {
   const StudentListContainer = styled(Segment)``
@@ -19,6 +20,15 @@ export default function StudentList() {
 
   const StudentListCard = styled(Segment)``
 
+  const Add = styled.div`
+    border: 2px solid #619800;
+    background: white;
+    border-radius: 10px;
+    width: 30%;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  `
   const StudentListNavLink = styled(NavLink)`
     display: flex;
     justify-content: space-between;
@@ -57,10 +67,10 @@ export default function StudentList() {
       axiosWithAuth()
         .get("https://better-prof-app.herokuapp.com/api/students")
         .then(response => {
-            if (response.data.img === null) {
-                response.data.img = 'http://placekitten.com/100/100'
-            } 
-            setStudents(response.data)
+          if (response.data.img === null) {
+            response.data.img = "http://placekitten.com/100/100"
+          }
+          setStudents(response.data)
         })
         .catch(error => {
           console.error("Server Error", error)
@@ -72,37 +82,56 @@ export default function StudentList() {
 
   return (
     <>
-    <header>
-    <TabNavAnn />
-    </header>
-    <PageContainer className="pageContainer">
+      <header>
+        <TabNavAnn />
+      </header>
+      <PageContainer className="pageContainer">
         <Grid columns={2} divided>
-            <Grid.Row>
-                <Grid.Column>
-                    <StudentListContainer className="studentListContainer">
-                        <h2>Students</h2>
-                        {students.map(student => {
-                            return (
-                                    <StudentListCard className="studentListCard" key={student.id}>
-                                        <StudentListNavLink exact to={`/protected/students/${student.id}`}>
-                                            <ThumbnailImg src={student.img} alt="portrait of student" />
-                                            <ThumbnailSpan>{student.name}</ThumbnailSpan>
-                                        </StudentListNavLink> 
-                                </StudentListCard>
-                            )
-                        })}
-                    </StudentListContainer>
-                </Grid.Column>
-                <Grid.Column>
-                    <Route
+          <Grid.Row>
+            <Grid.Column>
+              <StudentListContainer className="studentListContainer">
+                <h2>Students</h2>
+                <Link to="/protected/newstudent">
+                  <Add>Add New student</Add>
+                </Link>
+                {students.map(student => {
+                  return (
+                    <StudentListCard className="studentListCard">
+                      <StudentListNavLink
                         exact
-                        path="/protected/students/:id"
-                        render={props => <StudentProfile {...props} />}
-                    />
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
-    </PageContainer>
+                        to={`/protected/students/${student.id}`}
+                        key={student.id}
+                      >
+                        <ThumbnailImg
+                          src={student.img}
+                          alt="portrait of student"
+                        />
+                        <ThumbnailSpan>{student.name}</ThumbnailSpan>
+                      </StudentListNavLink>
+                    </StudentListCard>
+                  )
+                })}
+              </StudentListContainer>
+            </Grid.Column>
+            <Grid.Column>
+              <Route
+                exact
+                path="/protected/students/:id"
+                render={props => <StudentProfile {...props} />}
+              />
+              <Route
+                exact
+                path="/protected/newstudent"
+                component={NewStudentForm}
+              />
+              {/* <Route
+                        path="/protected/students/:id/project/:project_id"
+                        component={DummyComponent}
+                    /> */}
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </PageContainer>
     </>
   )
 }
