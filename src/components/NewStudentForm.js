@@ -2,8 +2,6 @@ import React, { useState } from "react"
 import ReactDOM from "react-dom"
 import axios from "axios"
 
-import "./styles.css"
-
 function NewStudentForm(props) {
   const [NewStudent, setNewStudent] = useState({})
 
@@ -53,7 +51,7 @@ function NewStudentForm(props) {
           name="location"
           placeholder="Student Location"
         />
-        <button type="submit">Submit This Bitch</button>
+        <button type="submit">Add New Student</button>
       </form>
     </div>
   )
