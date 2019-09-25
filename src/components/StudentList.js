@@ -20,6 +20,15 @@ export default function StudentList() {
 
   const StudentListCard = styled(Segment)``
 
+  const Add = styled.div`
+    border: 2px solid #619800;
+    background: white;
+    border-radius: 10px;
+    width: 30%;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  `
   const StudentListNavLink = styled(NavLink)`
     display: flex;
     justify-content: space-between;
@@ -82,7 +91,9 @@ export default function StudentList() {
             <Grid.Column>
               <StudentListContainer className="studentListContainer">
                 <h2>Students</h2>
-                <Link to="/protected/newstudent">Add</Link>
+                <Link to="/protected/newstudent">
+                  <Add>Add New student</Add>
+                </Link>
                 {students.map(student => {
                   return (
                     <StudentListCard className="studentListCard">

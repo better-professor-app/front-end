@@ -1,7 +1,22 @@
 import React, { useState } from "react"
-import ReactDOM from "react-dom"
 import axios from "axios"
+import { Segment } from "semantic-ui-react"
+import styled from "styled-components"
 
+const Heading = styled.h2`
+  color: black;
+  font-size: 20px;
+`
+const StudentListCard = styled(Segment)``
+
+const Label = styled.label`
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+`
+const PTag = styled.p`
+  margin: 10px;
+`
 function NewStudentForm(props) {
   const [NewStudent, setNewStudent] = useState({})
 
@@ -30,30 +45,40 @@ function NewStudentForm(props) {
     setNewStudent({ ...NewStudent, [event.target.name]: event.target.value })
   }
   return (
-    <div>
-      <p>New Student Form</p>
+    <StudentListCard>
+      <Heading>New Student Form</Heading>
       <form onSubmit={event => submitHandler(event)}>
-        <input
-          onChange={event => changeHandler(event)}
-          value={NewStudent.name}
-          name="name"
-          placeholder="Student Name"
-        />
-        <input
-          onChange={event => changeHandler(event)}
-          value={NewStudent.image}
-          name="image"
-          placeholder="Profile Image URL"
-        />
-        <input
-          onChange={event => changeHandler(event)}
-          value={NewStudent.location}
-          name="location"
-          placeholder="Student Location"
-        />
+        <Label>
+          <PTag>Student's Name:</PTag>
+          <input
+            onChange={event => changeHandler(event)}
+            value={NewStudent.name}
+            name="name"
+            placeholder="Student Name"
+          />
+        </Label>
+        <Label>
+          <PTag>Profile Image:</PTag>
+          <input
+            onChange={event => changeHandler(event)}
+            value={NewStudent.image}
+            name="image"
+            placeholder="URL"
+          />
+        </Label>
+        <Label>
+          <PTag>E-mail:</PTag>
+          <input
+            type="email"
+            onChange={event => changeHandler(event)}
+            value={NewStudent.location}
+            name="email"
+            placeholder="Student's E-mail"
+          />
+        </Label>
         <button type="submit">Add New Student</button>
       </form>
-    </div>
+    </StudentListCard>
   )
 }
 
