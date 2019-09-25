@@ -17,6 +17,7 @@ export default function StudentProfile(props) {
     const StudentProfileHeaderImg = styled.img`
         align-self: center
         border-radius: 10px;
+        max-width: 300px;
     `
 
     const ProjectContainer = styled(Segment)`
@@ -39,21 +40,23 @@ export default function StudentProfile(props) {
     const [openProjects, setOpenProjects] = useState([])
 
     useEffect(() => {
-      const getStudent = () => {
-        axiosWithAuth()
-          .get(`https://better-prof-app.herokuapp.com/api/students/${props.match.params.id}`)
-          .then(response => {
-            console.log(response)
-            response.data.img = 'http://placekitten.com/200/200';
-            setStudent(response.data);
-          })
-          .catch(error => {
-            console.error('Server Error', error)
-          })
-      }
+        const getStudent = () => {
+            axiosWithAuth()
+                .get(`https://better-prof-app.herokuapp.com/api/students/${props.match.params.id}`)
+                .then(response => {
+                    console.log(response)
+                    if (response.data.img === null) {
+                        response.data.img = 'http://placekitten.com/100/100'
+                    } 
+                    setStudent(response.data)
+                })
+                .catch(error => {
+                    console.error('Server Error', error)
+                })
+        }
 
-      getStudent();
-    }, [props.match.params.id]);
+      getStudent()
+    }, [props.match.params.id])
  
     function showHideProject(project_id) {
         if (openProjects.includes(project_id)) {
@@ -78,7 +81,7 @@ export default function StudentProfile(props) {
             <div className="studentProfileProjectsContainer">
                 {student.projects && student.projects.map( project => {
                     return (
-                        <ProjectContainer>
+                        <ProjectContainer key={project.project_id}>
                                 <ProjectTitleDiv onClick={() => showHideProject(project.project_id)}>{project.name}</ProjectTitleDiv>
                                 {openProjects.includes(project.project_id) &&
                                     <ProjectToggleDiv>

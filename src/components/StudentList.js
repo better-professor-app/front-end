@@ -58,9 +58,9 @@ export default function StudentList() {
       axiosWithAuth()
         .get("https://better-prof-app.herokuapp.com/api/students")
         .then(response => {
-          response.data.forEach(student => {
-            student.img = "http://placekitten.com/100/100"
-          })
+          if (response.data.img === null) {
+            response.data.img = "http://placekitten.com/100/100"
+          }
           setStudents(response.data)
         })
         .catch(error => {

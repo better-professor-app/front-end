@@ -52,6 +52,7 @@ UI Web Design <br/>
 - Github: [@dhoskins97](https://github.com/dhoskins97)
 - Github: [@ifiokudoidiok](https://github.com/ifiokudoidiok)
 - Github: [@seanaleid](https://github.com/seanaleid)
+- Github: [@jeffreywhitaker](https://github.com/jeffreywhitaker)
 
 ## Show your support
 
