@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react"
-import { Route, NavLink } from "react-router-dom"
+import { Route, NavLink, Link } from "react-router-dom"
 import { Segment, Grid } from "semantic-ui-react"
 import styled from "styled-components"
 import StudentProfile from "./StudentProfile"
 import { axiosWithAuth } from "../utilities/axiosWithAuth"
 import TabNavAnn from "./TabNavAnn"
 import "./reminder.css"
+import NewStudentForm from "./NewStudentForm"
 
 export default function StudentList() {
   const StudentListContainer = styled(Segment)``
@@ -81,6 +82,7 @@ export default function StudentList() {
             <Grid.Column>
               <StudentListContainer className="studentListContainer">
                 <h2>Students</h2>
+                <Link to="/protected/newstudent">Add</Link>
                 {students.map(student => {
                   return (
                     <StudentListCard className="studentListCard">
@@ -105,6 +107,11 @@ export default function StudentList() {
                 exact
                 path="/protected/students/:id"
                 render={props => <StudentProfile {...props} />}
+              />
+              <Route
+                exact
+                path="/protected/newstudent"
+                component={NewStudentForm}
               />
               {/* <Route
                         path="/protected/students/:id/project/:project_id"
