@@ -9,14 +9,34 @@ const Heading = styled.h2`
 `
 const StudentListCard = styled(Segment)``
 
-const Label = styled.label`
+const Div = styled.div`
   margin-bottom: 10px;
   display: flex;
   justify-content: center;
+  align-content: center;
 `
 const PTag = styled.p`
   margin: 10px;
 `
+const StudentInput = styled.input`
+  width: 100%;
+  margin: 10px;
+  padding: 18px 10px;
+  border-radius: 4px;
+  border: 1px solid #4e5766;
+  box-shadow: 1px 0.5px #888888;
+  font-size: 18px;
+`
+const Button = styled.button`
+  padding: 12px 10px;
+  width: 100%;
+  border-radius: 4px;
+  background-color: #4286f4;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 18px;
+`
+
 function NewStudentForm(props) {
   const [NewStudent, setNewStudent] = useState({})
 
@@ -48,35 +68,34 @@ function NewStudentForm(props) {
     <StudentListCard>
       <Heading>New Student Form</Heading>
       <form onSubmit={event => submitHandler(event)}>
-        <Label>
-          <PTag>Student's Name:</PTag>
-          <input
+        <Div>
+          <StudentInput
             onChange={event => changeHandler(event)}
             value={NewStudent.name}
             name="name"
             placeholder="Student Name"
           />
-        </Label>
-        <Label>
-          <PTag>Profile Image:</PTag>
-          <input
+        </Div>
+        <Div>
+          <StudentInput
             onChange={event => changeHandler(event)}
             value={NewStudent.image}
             name="image"
-            placeholder="URL"
+            placeholder="Image URL"
           />
-        </Label>
-        <Label>
-          <PTag>E-mail:</PTag>
-          <input
+        </Div>
+        <Div>
+          <StudentInput
             type="email"
             onChange={event => changeHandler(event)}
             value={NewStudent.location}
             name="email"
             placeholder="Student's E-mail"
           />
-        </Label>
-        <button type="submit">Add New Student</button>
+        </Div>
+        <Button type="submit" onClick={submitHandler}>
+          Add New Student
+        </Button>
       </form>
     </StudentListCard>
   )
